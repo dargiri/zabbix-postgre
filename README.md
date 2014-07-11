@@ -4,8 +4,11 @@
 'localhost:5432:db:user:password'
 
 chmod 0600 /var/run/zabbix/.pgpass
+
 chmod 0600 /home/zabbix/.pgpass
+
 chown zabbix: /var/run/zabbix/.pgpass
+
 chown zabbix: /var/run/zabbix/.pgpass
 
 
