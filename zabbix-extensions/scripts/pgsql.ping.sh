@@ -4,7 +4,7 @@
 
 username=$(head -n 1 /home/zabbix/.pgpass |cut -d: -f4)
 
-echo "Executed script " >> ~/pg_ping.log
+#echo "Executed script " >> ~/pg_ping.log
 
 #если имя базы не получено от сервера, то имя берется из /home/zabbix/.pgpass
 if [ -z "$*" ]; 
