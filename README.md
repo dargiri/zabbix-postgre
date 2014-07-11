@@ -9,7 +9,7 @@ chmod 0600 /home/zabbix/.pgpass
 
 chown zabbix: /var/run/zabbix/.pgpass
 
-chown zabbix: /var/run/zabbix/.pgpass
+chown zabbix: /home/zabbix/.pgpass
 
 
 2. mkdir -p /usr/libexec
