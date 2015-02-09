@@ -1,3 +1,5 @@
+Valid for Postgresql v 9.3+
+
 0. sudo su
 1. Create '.pgpass' file in /var/run/zabbix/ and in /home/zabbix/ with content:
 
@@ -16,5 +18,6 @@ chown zabbix: /home/zabbix/.pgpass
 3. cp -r zabbix-extensions /usr/libexec/
 4. chmod +xxx /usr/libexec/zabbix-extensions/scripts/*.sh
 5. cp postgresql.conf /etc/zabbix/
-6. Include=/etc/zabbix/postgresql.conf 
-7. /etc/init.d/zabbix-agent restart
+6. Add to /etc/zabbix/zabbig_agent.conf:
+Include=/etc/zabbix/postgresql.conf 
+7. service zabbix-agent restart
