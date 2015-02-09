@@ -18,12 +18,12 @@ PARAM="$1"
 
 case "$PARAM" in
 'idle' )
-        #query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE state='idle in transaction';"
-        query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE lower(current_query)='<idle> in transaction';"
+        query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE state='idle in transaction';"
+        #query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE lower(current_query)='<idle> in transaction';"
 ;;
 'active' )
-	#query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE state <> 'idle in transaction' AND state <> 'idle'"
-	query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE lower(current_query) <> '<idle> in transaction' AND lower(current_query) <> '<idle>'"
+	query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE state <> 'idle in transaction' AND state <> 'idle'"
+	#query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE lower(current_query) <> '<idle> in transaction' AND lower(current_query) <> '<idle>'"
 ;;
 'waiting' )
 	query="SELECT COALESCE(EXTRACT (EPOCH FROM MAX(age(NOW(), query_start))), 0) as d FROM pg_stat_activity WHERE waiting = 't'"
