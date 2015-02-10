@@ -17,19 +17,19 @@ PARAM="$1"
 
 case "$PARAM" in
 'idle_in_transaction' )
-        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'idle in transaction';"
-        query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) = '<idle> in transaction';"
+        query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'idle in transaction';"
+        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) = '<idle> in transaction';"
 ;;
 'idle' )
-        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'idle';"
-        query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) = '<idle>';"
+        query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'idle';"
+        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) = '<idle>';"
 ;;
 'total' )
         query="SELECT COUNT(*) FROM pg_stat_activity;"
 ;;
 'active' )
-        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'active';"
-        query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) NOT IN ( '<idle> in transaction', '<idle>');"
+        query="SELECT COUNT(*) FROM pg_stat_activity WHERE state = 'active';"
+        #query="SELECT COUNT(*) FROM pg_stat_activity WHERE lower(current_query) NOT IN ( '<idle> in transaction', '<idle>');"
 ;;
 'waiting' )
         query="SELECT COUNT(*) FROM pg_stat_activity WHERE waiting <> 'f';"
